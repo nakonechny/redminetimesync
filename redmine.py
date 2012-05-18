@@ -35,13 +35,6 @@ class Redmine:
 		
 		self.__opener = None
 		
-		if not username:
-			username = key
-			self.__key = None
-			
-		if not password:
-			password = '12345'  #the same combination on my luggage!  (dummy value)
-		
 		if( username and password ):
 			#realm = 'Redmine API'
 			# create a password manager
@@ -61,8 +54,7 @@ class Redmine:
 			
 		else:
 			if not key:
-				pass
-				#raise TypeError('Must pass a key or username and password')
+				raise TypeError('Must pass a key or username and password')
 		
 	class Project:
 		'''Object returned by Redmine getProject calls
