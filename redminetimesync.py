@@ -85,6 +85,7 @@ def syncToRedmine():
         else:
             for issue in xml:
                 xmlDocument = minidom.parseString(issue)
+		print xmlDocument.toxml()
                 myredmine.post("time_entries.xml", xmlDocument)
             print("Sync to %s [OK]" % configProperties['url'])
     else: print("Today no time entries to send... have you been lazy?")
